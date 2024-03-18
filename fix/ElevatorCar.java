@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.net.*;
 import java.nio.ByteBuffer;
 
@@ -25,10 +26,11 @@ public class ElevatorCar {
 
 	}
 
-	public void requstWork() {
+	private void requstWork() {
 		DatagramPacket reqPacket = null; 		
 		
 		try {
+			System.out.println("Sending request for work to Server");
 			byte[] reqMsg = intToBytes(1111);
 			reqPacket = new DatagramPacket(reqMsg, reqMsg.length, InetAddress.getLocalHost(), 9999);
 
@@ -37,14 +39,20 @@ public class ElevatorCar {
 			System.exit(1); 
 		}
 
-		try 
-	
-
-
-		
-
-
+		try {
+			socket.send(reqPacket);
+	       	} catch (IOException e) {
+			e.printStackTrace();
+			System.exit(1);
+		}			
 	}
 
+	public void elevatorService() {
+		requstWork();
+	}
 
+	public static void main(String[] args) {
+		ElevatorCar e = new ElevatorCar();
+		e.elevatorService();
+	}
 }

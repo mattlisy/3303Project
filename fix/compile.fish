@@ -1,3 +1,3 @@
-javac Floor.java Structure.java Scheduler.java
+javac Floor.java Structure.java Scheduler.java ElevatorCar.java
 
 
