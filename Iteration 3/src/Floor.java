@@ -16,6 +16,7 @@ public class Floor {
 
     DatagramPacket sendPacket;
 
+
     DatagramSocket sendSocket;
     private final String fileName = "test.csv";
 
@@ -40,12 +41,14 @@ public class Floor {
                 if(struct != null) {
                     //send values to scheduler
                     floorDataEcho(struct);
+
                 }
             }
             sc.close();
         }catch(FileNotFoundException | ParseException e){
             Thread.currentThread().interrupt();
         }
+	for (iterable_type iterable_element : iterable) {
     }
 
     /**
@@ -82,9 +85,7 @@ public class Floor {
             System.out.println(values[3]); //floor destination
             System.out.println("----------------");
             //put values in data struct
-            return new Structure(Integer.parseInt(times[0]), Integer.parseInt(times[1]), Integer.parseInt(times[2]), Integer.parseInt(times[3]), Integer.parseInt(values[1]), floorButton, Integer.parseInt(values[3]));
-        }
-    }
+            return new Structure(Integer.parseInt(times[0]), Integer.parseInt(times[1]), Integer.parseInt(times[2]), Integer.parseInt(times[3]), Integer.parseInt(values[1]), floorButton, Integer.parseInt(values[3])); } }
 
     /**
      * Sends the input data to the scheduler and prints the data received from the scheduler
